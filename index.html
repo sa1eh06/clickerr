@@ -15,11 +15,6 @@
       animation: colorShift 10s infinite alternate; /* Animation for color shifting */
     }
 
-    #heart {
-      cursor: pointer;
-      font-size: 3em;
-    }
-
     #content {
       display: none; /* Initially hide content */
       text-align: center;
@@ -35,17 +30,24 @@
   </style>
 </head>
 <body>
-  <div id="heart" onclick="hideHeart()">❤️ Click Me ❤️</div>
+  <div class="cssload-main">
+    <div class="cssload-heart">
+      <span class="cssload-heartL"></span>
+      <span class="cssload-heartR"></span>
+      <span class="cssload-square"></span>
+    </div>
+    <div class="cssload-shadow"></div>
+  </div>
   <div id="content">
     <h1>Happy Birthday My Love</h1>
     <p>This is a prototype</p>
   </div>
 
   <script>
-    function hideHeart() {
-      document.getElementById('heart').style.display = 'none'; // Hide the heart
+    setTimeout(function(){
       document.getElementById('content').style.display = 'block'; // Show content area
-    }
+      document.querySelector('.cssload-main').style.display = 'none'; // Hide the heart animation
+    }, 3000); // Adjust the delay as needed (3000ms = 3 seconds)
   </script>
 </body>
 </html>
