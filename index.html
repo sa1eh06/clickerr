@@ -33,7 +33,7 @@
       position: absolute;
       content: '';
       left: 50%;
-      transform: translate(-50%, -240%);
+      transform: translate(-50%, -50%);
     }
 
     .cssload-main * {
@@ -106,10 +106,15 @@
       text-align: center;
       cursor: pointer;
       position: absolute;
-      top: calc(50% + 120px); /* Position below the heart */
+      top: 65%;
       left: 50%;
       transform: translateX(-50%);
+      color: white;
       z-index: 0; /* Ensure click-me is behind heart */
+    }
+
+    .click-me-text {
+      display: inline;
     }
 
     #content {
@@ -160,7 +165,7 @@
         <div class="cssload-shadow"></div>
       </div>
     </div>
-    <div id="click-me" onclick="hideHeart()">Click Me</div>
+    <div id="click-me" onclick="hideHeart()">Click <span class="click-me-text">Me</span></div>
   </div>
 
   <div id="content">
