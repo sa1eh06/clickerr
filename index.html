@@ -12,7 +12,7 @@
       justify-content: center;
       align-items: center;
       background-color: #ffccdd; /* Initial background color */
-      animation: colorShift 15s infinite alternate; /* Animation for color shifting */
+      animation: colorShift 10s infinite alternate; /* Animation for color shifting */
     }
 
     #heart-container {
@@ -20,20 +20,9 @@
       text-align: center;
     }
 
-    #heart {
-      cursor: pointer;
-      font-size: 3em;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1; /* Ensure heart is above content */
-    }
-
     .cssload-main {
-      position: relative;
       display: inline-block;
-      vertical-align: middle;
+      position: relative;
     }
 
     .cssload-main * {
@@ -50,7 +39,6 @@
       height: 1em;
       border: 1px solid rgb(252, 0, 101);
       background-color: rgb(252, 0, 101);
-      content: '';
       position: absolute;
       display: block;
       border-radius: 100%;
@@ -63,7 +51,6 @@
       height: 1em;
       border: 1px solid rgb(252, 0, 101);
       background-color: rgb(252, 0, 101);
-      content: '';
       position: absolute;
       display: block;
       border-radius: 100%;
@@ -76,9 +63,8 @@
       height: 1em;
       border: 1px solid rgb(252, 0, 101);
       background-color: rgb(252, 0, 101);
-      position: absolute;
+      position: relative;
       display: block;
-      content: '';
       transform: scale(1) rotate(-45deg);
       animation: cssload-square 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
     }
@@ -103,10 +89,10 @@
       text-align: center;
       cursor: pointer;
       position: absolute;
-      top: calc(50% + 50px); /* Adjusted position */
+      top: calc(50% + 70px); /* Adjusted position */
       left: 50%;
       transform: translateX(-50%);
-      color: rgb(255, 255, 255);
+      color: white;
       z-index: 0; /* Ensure click-me is behind heart */
     }
 
@@ -152,15 +138,13 @@
 </head>
 <body>
   <div id="heart-container">
-    <div id="heart" onclick="hideHeart()">
-      <div class="cssload-main">
-        <div class="cssload-heart">
-          <span class="cssload-heartL"></span>
-          <span class="cssload-heartR"></span>
-          <span class="cssload-square"></span>
-        </div>
-        <div class="cssload-shadow"></div>
+    <div class="cssload-main">
+      <div class="cssload-heart">
+        <span class="cssload-heartL"></span>
+        <span class="cssload-heartR"></span>
+        <span class="cssload-square"></span>
       </div>
+      <div class="cssload-shadow"></div>
     </div>
     <div id="click-me" onclick="hideHeart()">Click <span class="click-me-text">Me</span></div>
   </div>
