@@ -12,11 +12,12 @@
       justify-content: center;
       align-items: center;
       background-color: #ffccdd; /* Initial background color */
-      animation: colorShift 10s infinite alternate; /* Animation for color shifting */
+      animation: colorShift 20s infinite alternate; /* Animation for color shifting */
     }
 
     #heart-container {
       position: relative;
+      text-align: center;
     }
 
     #heart {
@@ -24,17 +25,15 @@
       font-size: 3em;
       position: absolute;
       top: 50%;
-      left: 50%; /* Adjusted position */
+      left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1; /* Ensure heart is above content */
     }
 
     .cssload-main {
-      position: absolute;
-      content: '';
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
     }
 
     .cssload-main * {
@@ -43,10 +42,7 @@
 
     .cssload-heart {
       animation: cssload-heart 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
     }
 
     .cssload-heartL {
