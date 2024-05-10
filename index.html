@@ -101,18 +101,21 @@
       animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
     }
 
+    #click-me {
+      font-size: 1.5em;
+      text-align: center;
+      cursor: pointer;
+      position: absolute;
+      top: calc(50% + 120px); /* Position below the heart */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0; /* Ensure click-me is behind heart */
+    }
+
     #content {
       display: none; /* Initially hide content */
       text-align: center;
       margin-top: 50px;
-    }
-
-    #click-me {
-      font-size: 1.5em;
-      margin-top: 20px;
-      text-decoration: underline;
-      cursor: pointer;
-      z-index: 0; /* Ensure click-me is behind heart */
     }
 
     @keyframes colorShift {
@@ -125,7 +128,7 @@
 </head>
 <body>
   <div id="heart-container">
-    <div id="heart">
+    <div id="heart" onclick="hideHeart()">
       <div class="cssload-main">
         <div class="cssload-heart">
           <span class="cssload-heartL"></span>
@@ -135,7 +138,7 @@
         <div class="cssload-shadow"></div>
       </div>
     </div>
-    <div id="click-me" onclick="hideHeart()">Click Me</div>
+    <div id="click-me">Click Me</div>
   </div>
 
   <div id="content">
