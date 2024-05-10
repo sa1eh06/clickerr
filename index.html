@@ -88,6 +88,14 @@
       animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
     }
 
+    #clickHere {
+      cursor: pointer;
+      font-size: 1.5em;
+      margin-top: 20px;
+      text-decoration: underline;
+      color: blue;
+    }
+
     @keyframes cssload-square {
       50% {
         border-radius: 100%;
@@ -138,16 +146,12 @@
     </div>
     <div class="cssload-shadow"></div>
   </div>
-  <div id="content" style="display:none;">
-    <h1>Happy Birthday My Love</h1>
-    <p>This is a prototype</p>
-  </div>
+  <div id="clickHere" onclick="redirect()">Click Here</div>
 
   <script>
-    setTimeout(function(){
-      document.getElementById('content').style.display = 'block'; // Show content area
-      document.querySelector('.cssload-main').style.display = 'none'; // Hide the heart animation
-    }, 3000); // Adjust the delay as needed (3000ms = 3 seconds)
+    function redirect() {
+      window.location.href = "page2.html"; // Redirect to page2.html
+    }
   </script>
 </body>
 </html>
