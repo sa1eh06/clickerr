@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Clicker</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffccdd; /* Initial background color */
+      animation: colorShift 10s infinite alternate; /* Animation for color shifting */
+    }
+
+    #heart {
+      cursor: pointer;
+      font-size: 3em;
+    }
+
+    #content {
+      display: none; /* Initially hide content */
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    @keyframes colorShift {
+      0% { background-color: #ffccdd; } /* Light pink */
+      33% { background-color: #ff99aa; } /* Dark pink */
+      67% { background-color: #ff6666; } /* Red */
+      100% { background-color: #ffccdd; } /* Back to light pink */
+    }
+  </style>
+</head>
+<body>
+  <div id="heart" onclick="hideHeart()">❤️ Click Me ❤️</div>
+  <div id="content">
+    <h1>stop making it weird im trying to be a good freind</h1>
+    <p>This is a prototype.</p>
+  </div>
+
+  <script>
+    function hideHeart() {
+      document.getElementById('heart').style.display = 'none'; // Hide the heart
+      document.getElementById('content').style.display = 'block'; // Show content area
+    }
+  </script>
+</body>
+</html>
