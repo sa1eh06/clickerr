@@ -12,7 +12,7 @@
       justify-content: center;
       align-items: center;
       background-color: #ffccdd; /* Initial background color */
-      animation: colorShift 20s infinite alternate; /* Animation for color shifting */
+      animation: colorShift 15s infinite alternate; /* Animation for color shifting */
     }
 
     #heart-container {
@@ -76,7 +76,7 @@
       height: 1em;
       border: 1px solid rgb(252, 0, 101);
       background-color: rgb(252, 0, 101);
-      position: relative;
+      position: absolute;
       display: block;
       content: '';
       transform: scale(1) rotate(-45deg);
@@ -87,7 +87,7 @@
       top: 97px;
       left: 50%;
       content: '';
-      position: relative;
+      position: absolute;
       display: block;
       bottom: -.5em;
       width: 1em;
@@ -106,7 +106,7 @@
       top: calc(50% + 50px); /* Adjusted position */
       left: 50%;
       transform: translateX(-50%);
-      color: white;
+      color: rgb(255, 255, 255);
       z-index: 0; /* Ensure click-me is behind heart */
     }
 
