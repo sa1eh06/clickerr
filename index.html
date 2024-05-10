@@ -15,16 +15,28 @@
       animation: colorShift 10s infinite alternate; /* Animation for color shifting */
     }
 
+    #heart-container {
+      position: relative;
+    }
+
     #heart {
       cursor: pointer;
       font-size: 3em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1; /* Ensure heart is above content */
+    }
+
+    #heart .cssload-main {
       position: absolute;
       content: '';
       left: 50%;
       transform: translate(-100%, -240%);
     }
 
-    #heart * {
+    #heart .cssload-main * {
       font-size: 62px;
     }
 
@@ -95,6 +107,14 @@
       margin-top: 50px;
     }
 
+    #click-me {
+      font-size: 1.5em;
+      margin-top: 20px;
+      text-decoration: underline;
+      cursor: pointer;
+      z-index: 0; /* Ensure click-me is behind heart */
+    }
+
     @keyframes colorShift {
       0% { background-color: #ffccdd; } /* Light pink */
       33% { background-color: #ff99aa; } /* Dark pink */
@@ -104,13 +124,18 @@
   </style>
 </head>
 <body>
-  <div id="heart">
-    <div class="cssload-heart">
-      <span class="cssload-heartL"></span>
-      <span class="cssload-heartR"></span>
-      <span class="cssload-square"></span>
+  <div id="heart-container">
+    <div id="heart">
+      <div class="cssload-main">
+        <div class="cssload-heart">
+          <span class="cssload-heartL"></span>
+          <span class="cssload-heartR"></span>
+          <span class="cssload-square"></span>
+        </div>
+        <div class="cssload-shadow"></div>
+      </div>
     </div>
-    <div class="cssload-shadow"></div>
+    <div id="click-me" onclick="hideHeart()">Click Me</div>
   </div>
 
   <div id="content">
