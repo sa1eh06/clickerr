@@ -198,24 +198,15 @@
     /* Background color shift animation */
     @keyframes colorShift {
       0% {
-        background-color: #8B0000; /* Dark red */
-      }
-      15% {
         background-color: #FF0000; /* Red */
       }
-      30% {
-        background-color: #FF6347; /* Light red */
-      }
-      45% {
-        background-color: #C71585; /* Dark pink */
-      }
-      60% {
+      25% {
         background-color: #FFC0CB; /* Pink */
       }
-      75% {
+      50% {
         background-color: #FFB6C1; /* Light pink */
       }
-      100% {
+      75% {
         background-color: #FFFFFF; /* White */
       }
     }
@@ -293,7 +284,7 @@
     // Background color shift animation
     var colorShift = document.createElement('style');
     colorShift.type = 'text/css';
-    colorShift.innerHTML = '@keyframes colorShift { 0% { background-color: #8B0000; } 15% { background-color: #FF0000; } 30% { background-color: #FF6347; } 45% { background-color: #C71585; } 60% { background-color: #FFC0CB; } 75% { background-color: #FFB6C1; } 100% { background-color: #FFFFFF; } }';
+    colorShift.innerHTML = '@keyframes colorShift { 0% { background-color: #FF0000; } 25% { background-color: #FFC0CB; } 50% { background-color: #FFB6C1; } 75% { background-color: #FFFFFF; } }';
     document.getElementsByTagName('head')[0].appendChild(colorShift);
   </script>
 </body>
