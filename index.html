@@ -94,6 +94,10 @@
       margin-top: 0;
     }
 
+    #continue-button {
+      margin-top: 20px;
+    }
+
     @keyframes colorShift {
       0% { background-color: #ffccdd; } /* Light pink */
       33% { background-color: #ff99aa; } /* Dark pink */
@@ -134,7 +138,8 @@
 
   <div id="content">
     <h1 id="birthday-message">Happy Birthday My Love</h1>
-    <p id="other-message">SUPRIESEEE, I told you that one i showed you was very small, barley a line. This however did take me a while, I wont tell you how much time or what time i did it since aaj kai din apsa dant nahi khani, kal dant da na koy nahi. anyways happy birthday my pretty lady.</p>
+    <p id="other-message">SUPRIESEEE, I told you the one i showed you before was very small, barley a line. This however did take me a while, I wont tell you how much time or what time i did it since aaj kai din apsa dant nahi khani, kal dant da na koy nahi. anyways happy birthday my pretty lady.</p>
+    <button id="continue-button" onclick="showAnniversaryText()">Continue</button>
   </div>
 
   <script>
@@ -143,6 +148,11 @@
       document.getElementById('content').style.display = 'block'; // Show content area
       document.getElementById('birthday-message').style.display = 'block'; // Show birthday message
       document.getElementById('other-message').style.display = 'block'; // Show other message
+    }
+
+    function showAnniversaryText() {
+      document.getElementById('other-message').innerHTML = "Happy 6th Month Anniversary My Love (Literally Half A Year!!!)";
+      document.getElementById('continue-button').style.display = 'none'; // Hide continue button after showing new text
     }
   </script>
 </body>
