@@ -195,76 +195,28 @@
       }
     }
 
-    /* Heart animation keyframes */
-    @keyframes cssload-heart {
+    /* Background color shift animation */
+    @keyframes colorShift {
       0% {
-        transform: scale(1);
+        background-color: #8B0000; /* Dark red */
       }
-      25% {
-        transform: scale(0.9);
+      15% {
+        background-color: #FF0000; /* Red */
       }
-      50% {
-        transform: scale(1);
+      30% {
+        background-color: #FF6347; /* Light red */
+      }
+      45% {
+        background-color: #C71585; /* Dark pink */
+      }
+      60% {
+        background-color: #FFC0CB; /* Pink */
       }
       75% {
-        transform: scale(0.9);
+        background-color: #FFB6C1; /* Light pink */
       }
       100% {
-        transform: scale(1);
-      }
-    }
-
-    @keyframes cssload-heartL {
-      0% {
-        transform: scale(1) translate(-28px, -27px);
-      }
-      25% {
-        transform: scale(0.9) translate(-28px, -27px);
-      }
-      50% {
-        transform: scale(1) translate(-28px, -27px);
-      }
-      75% {
-        transform: scale(0.9) translate(-28px, -27px);
-      }
-      100% {
-        transform: scale(1) translate(-28px, -27px);
-      }
-    }
-
-    @keyframes cssload-heartR {
-      0% {
-        transform: scale(1) translate(28px, -27px);
-      }
-      25% {
-        transform: scale(0.9) translate(28px, -27px);
-      }
-      50% {
-        transform: scale(1) translate(28px, -27px);
-      }
-      75% {
-        transform: scale(0.9) translate(28px, -27px);
-      }
-      100% {
-        transform: scale(1) translate(28px, -27px);
-      }
-    }
-
-    @keyframes cssload-square {
-      0% {
-        transform: scale(1) rotate(-45deg);
-      }
-      25% {
-        transform: scale(0.9) rotate(-45deg);
-      }
-      50% {
-        transform: scale(1) rotate(-45deg);
-      }
-      75% {
-        transform: scale(0.9) rotate(-45deg);
-      }
-      100% {
-        transform: scale(1) rotate(-45deg);
+        background-color: #FFFFFF; /* White */
       }
     }
   </style>
@@ -341,7 +293,7 @@
     // Background color shift animation
     var colorShift = document.createElement('style');
     colorShift.type = 'text/css';
-    colorShift.innerHTML = '@keyframes colorShift { 0% { background-color: #ffccdd; } 50% { background-color: #f8b6c9; } 100% { background-color: #f3a6c7; } }';
+    colorShift.innerHTML = '@keyframes colorShift { 0% { background-color: #8B0000; } 15% { background-color: #FF0000; } 30% { background-color: #FF6347; } 45% { background-color: #C71585; } 60% { background-color: #FFC0CB; } 75% { background-color: #FFB6C1; } 100% { background-color: #FFFFFF; } }';
     document.getElementsByTagName('head')[0].appendChild(colorShift);
   </script>
 </body>
