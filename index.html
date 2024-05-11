@@ -9,9 +9,8 @@
       margin: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column; /* Stack elements vertically */
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start; /* Align content at the top */
       background-color: #ffccdd; /* Initial background color */
       animation: colorShift 10s infinite alternate; /* Animation for color shifting */
     }
@@ -19,7 +18,6 @@
     #heart-container {
       position: relative;
       text-align: center;
-      margin-top: 50px;
     }
 
     .cssload-main {
@@ -87,6 +85,8 @@
     #content {
       text-align: center;
       margin-top: 20px; /* Adjust margin as needed */
+      position: absolute;
+      top: 20px; /* Adjust top position to move the message to the top */
     }
 
     h1 {
