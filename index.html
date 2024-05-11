@@ -139,6 +139,8 @@
   </div>
 
   <script>
+    var continueButtonClicks = 0;
+
     function hideHeart() {
       document.getElementById('heart-container').style.display = 'none'; // Hide the heart
       document.getElementById('content').style.display = 'block'; // Show content area
@@ -147,19 +149,21 @@
     }
 
     function showAnniversary() {
-      // Hide anniversary messages
-      document.getElementById('birthday-message').style.display = 'none';
-      document.getElementById('other-message').style.display = 'none';
+      continueButtonClicks++;
+      if (continueButtonClicks === 2) {
+        // Hide anniversary messages
+        document.getElementById('birthday-message').style.display = 'none';
+        document.getElementById('other-message').style.display = 'none';
 
-      // Show "Us" text
-      var usText = document.createElement('h1');
-      usText.textContent = "Us";
-      document.getElementById('content').appendChild(usText);
+        // Show "Us" text
+        var usText = document.createElement('h1');
+        usText.textContent = "Us";
+        document.getElementById('content').appendChild(usText);
 
-      // Hide "Continue" button
-      document.getElementById('continue-button').style.display = 'none';
+        // Hide "Continue" button
+        document.getElementById('continue-button').style.display = 'none';
+      }
     }
   </script>
 </body>
 </html>
-
