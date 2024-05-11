@@ -147,8 +147,21 @@
     }
 
     function showAnniversary() {
-      document.getElementById('birthday-message').innerHTML = "Happy 6 Months Anniversary My Boheen (Literally Half A Year!!!)";
-      document.getElementById('other-message').innerHTML = "I cant believe its been half year since i completely fell for you";
+      document.getElementById('birthday-message').style.display = 'none'; // Hide birthday message
+      document.getElementById('other-message').style.display = 'none'; // Hide other message
+
+      // Add "Us" text
+      var usText = document.createElement('h1');
+      usText.textContent = "Us";
+      document.getElementById('content').appendChild(usText);
+
+      // Add image placeholders
+      for (var i = 0; i < 10; i++) {
+        var imagePlaceholder = document.createElement('img');
+        imagePlaceholder.src = ""; // Add image source if available
+        imagePlaceholder.alt = "Image";
+        document.getElementById('content').appendChild(imagePlaceholder);
+      }
     }
   </script>
 </body>
