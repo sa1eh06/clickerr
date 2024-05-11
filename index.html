@@ -83,6 +83,7 @@
     }
 
     #content {
+      display: none; /* Initially hide content */
       text-align: center;
       margin-top: 20px; /* Adjust margin as needed */
       position: absolute;
@@ -120,11 +121,6 @@
   </style>
 </head>
 <body>
-  <div id="content">
-    <h1>Happy Birthday My Love</h1>
-    <p>This is a prototype</p>
-  </div>
-
   <div id="heart-container">
     <div class="cssload-main">
       <div class="cssload-heart">
@@ -136,10 +132,17 @@
     <div id="click-me" onclick="hideHeart()">Click <span class="click-me-text">Me</span></div>
   </div>
 
+  <div id="content">
+    <h1 id="birthday-message">Happy Birthday My Love</h1>
+    <p id="other-message">This is a prototype</p>
+  </div>
+
   <script>
     function hideHeart() {
       document.getElementById('heart-container').style.display = 'none'; // Hide the heart
       document.getElementById('content').style.display = 'block'; // Show content area
+      document.getElementById('birthday-message').style.display = 'block'; // Show birthday message
+      document.getElementById('other-message').style.display = 'block'; // Show other message
     }
   </script>
 </body>
