@@ -94,55 +94,63 @@
       margin-top: 0;
     }
 
+    @keyframes colorShift {
+      0% { background-color: #ffccdd; } /* Light pink */
+      33% { background-color: #ff99aa; } /* Dark pink */
+      67% { background-color: #ff6666; } /* Red */
+      100% { background-color: #ffccdd; } /* Back to light pink */
+    }
+
+    @keyframes cssload-heart {
+      50% { transform: rotate(360deg); }
+      100% { transform: rotate(720deg); }
+    }
+
+    @keyframes cssload-heartL {
+      60% { transform: scale(0.4); }
+    }
+
+    @keyframes cssload-heartR {
+      40% { transform: scale(0.4); }
+    }
+
+    @keyframes cssload-square {
+      50% { border-radius: 100%; transform: scale(0.5) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+    
+    /* Add styles for the button */
     .btn-container {
-      display: flex;
-      justify-content: center;
       margin-top: 20px;
     }
 
     .btn-content {
       display: flex;
       align-items: center;
-      padding: 0px 3px;
+      padding: 10px 15px;
       text-decoration: none;
       font-family: "Poppins", sans-serif;
-      font-size: 25px;
+      font-size: 20px;
       color: #9ee5fa;
       background: #353535;
-      transition: 1s;
       border-radius: 100px;
       box-shadow: 0 0 0.2em 0 #353535;
+      transition: 0.5s;
     }
 
     .btn-content:hover,
     .btn-content:focus {
-      transition: 0.5s;
-      -webkit-animation: btn-content 1s;
-      animation: btn-content 1s;
+      box-shadow: 0 0 0.4em 0 #353535;
       outline: 0.1em solid transparent;
       outline-offset: 0.2em;
-      box-shadow: 0 0 0.4em 0 #353535;
-    }
-
-    .btn-content .icon-arrow {
-      transition: 0.5s;
-      margin-right: 0px;
-      transform: scale(0.6);
-    }
-
-    .btn-content:hover .icon-arrow {
-      transition: 0.5s;
-      margin-right: 25px;
     }
 
     .icon-arrow {
       width: 20px;
       margin-left: 15px;
-      position: relative;
-      top: 6%;
     }
 
-    /* SVG */
+    /* SVG animations */
     #arrow-icon-one {
       transition: 0.4s;
       transform: translateX(-60%);
@@ -181,21 +189,6 @@
         fill: #9ee5fa;
       }
     }
-
-    /* Button animations */
-    @-webkit-keyframes btn-content {
-      0% {
-        outline: 0.2em solid #353535;
-        outline-offset: 0;
-      }
-    }
-
-    @keyframes btn-content {
-      0% {
-        outline: 0.2em solid #353535;
-        outline-offset: 0;
-      }
-    }
   </style>
 </head>
 <body>
@@ -213,8 +206,10 @@
   <div id="content">
     <h1 id="birthday-message">Happy Birthday My Love</h1>
     <p id="other-message">SUPRIESEEE, I told you the one i showed you before was very small, barley a line. This however did take me a while, I wont tell you how much time or what time i did it since aaj kai din apsa dant nahi khani, kal dant da na koy nahi. anyways happy birthday my pretty lady.</p>
+    <!-- Add the button container and button here -->
     <div class="btn-container">
       <a href="#" class="btn-content" onclick="showAnniversaryText()">
+        Continue
         <span class="icon-arrow">
           <svg
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -262,7 +257,12 @@
     }
 
     function showAnniversaryText() {
-      document.getElementById('other-message').innerHTML = "Happy 6th Month Anniversary My Love (Literally Half A Year!!!)";
+      // Hide the birthday message and other message
+      document.getElementById('birthday-message').style.display = 'none';
+      document.getElementById('other-message').style.display = 'none';
+
+      // Show the anniversary message
+      document.getElementById('anniversary-message').style.display = 'block';
     }
   </script>
 </body>
