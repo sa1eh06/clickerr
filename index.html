@@ -148,7 +148,7 @@
 
     function showAnniversary() {
       document.getElementById('birthday-message').innerHTML = "Happy 6 Months Anniversary My Roheen (Literally Half A Year!!!)";
-      document.getElementById('other-message').innerHTML = "I cant believe its been half year since i fell for you. Everyday i wake up practically running to my phone to see if THE love of my life messaged me, and when i sleep i stay away a little more incase you need me. Talking about me trying to sleep which isnt dont without thinking about you, every night its always thoughts about you, like when will we meet again? ";
+      document.getElementById('other-message').innerHTML = "I cant believe its been half year since i fell for you. Everyday i wake up practically running to my phone to see if THE love of my life messaged me, and when i sleep i stay away a little more incase you need me. Talking about me trying to sleep which isnt done without thinking about you, every night its always thoughts about you, like when will we meet again? ";
       document.querySelector('.continue-button').innerHTML = "Continue"; // Change button text
       document.querySelector('.continue-button').setAttribute("onclick", "showUs()"); // Change button function
     }
@@ -158,23 +158,35 @@
       document.getElementById('birthday-message').style.display = 'none';
       document.getElementById('other-message').style.display = 'none';
       document.querySelector('.continue-button').style.display = 'none'; // Hide continue button
-      // Show "Us" text
+
+      // Show "Us" text at the top middle of the screen
       var usText = document.createElement('h1');
       usText.textContent = "Us";
+      usText.style.position = "absolute";
+      usText.style.top = "50px"; // Adjust as needed
+      usText.style.left = "50%"; // Center horizontally
+      usText.style.transform = "translateX(-50%)"; // Center horizontally
       document.body.appendChild(usText);
+
       // Create container for images
       var imageContainer = document.createElement('div');
       imageContainer.setAttribute("id", "image-container");
       document.body.appendChild(imageContainer);
+
       // Create images
       for (var i = 1; i <= 10; i++) {
         var img = document.createElement('img');
         img.src = "image" + i + ".jpg"; // Adjust image source accordingly
         document.getElementById('image-container').appendChild(img);
       }
+
       // Add text after images
       var textAfterImages = document.createElement('p');
       textAfterImages.textContent = "I hope you liked my gift my girl";
+      textAfterImages.style.position = "absolute";
+      textAfterImages.style.bottom = "50px"; // Adjust as needed
+      textAfterImages.style.left = "50%"; // Center horizontally
+      textAfterImages.style.transform = "translateX(-50%)"; // Center horizontally
       document.body.appendChild(textAfterImages);
     }
   </script>
