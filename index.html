@@ -133,8 +133,8 @@
   </div>
 
   <div id="content">
-    <h1 id="birthday-message">Happy Birthday My Love</h1>
-    <p id="other-message">SUPPRISEEE, I told you the one i showed you before was very small, barley a line. This one whoever did take me a while, Im writing some of this in class, some at home some late at night some even while going home cuz your always on my mind, naraz na hona bas apsa pyar hi bohot karta hu. anyways happy birthday my pretty lady i know im not there so i cant give you anything so i hope you enjoy this and have a amazing day.</p>
+    <h1 id="birthday-message">enter text here</h1>
+    <p id="other-message">you owe me</p>
     <div class="continue-button" onclick="showAnniversary()">Continue</div>
   </div>
 
@@ -147,8 +147,8 @@
     }
 
     function showAnniversary() {
-      document.getElementById('birthday-message').innerHTML = "Happy 6 Months Anniversary My Roheen (Literally Half A Year!!!)";
-      document.getElementById('other-message').innerHTML = "I cant believe its been half year since i fell for you. Everyday i wake up practically running to my phone to see if THE love of my life messaged me, and when i sleep i stay away a little more incase you need me. Talking about me trying to sleep which isnt done without thinking about you, every night its always thoughts about you, like when will we meet again? ";
+      document.getElementById('birthday-message').innerHTML = "enter text here";
+      document.getElementById('other-message').innerHTML = "enter text here";
       document.querySelector('.continue-button').innerHTML = "Continue"; // Change button text
       document.querySelector('.continue-button').setAttribute("onclick", "showUs()"); // Change button function
     }
@@ -176,7 +176,7 @@
       // Create images
       for (var i = 1; i <= 10; i++) {
         var img = document.createElement('img');
-        img.src = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fkids.nationalgeographic.com%2Fanimals%2Fmammals%2Ffacts%2Flion&psig=AOvVaw3-sA5LFIFPqUOiQtfzr0Z6&ust=1715617978310000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIC08rLFiIYDFQAAAAAdAAAAABAE" + i + ".jpg"; // Adjust image source accordingly
+        img.src = "image" + i + ".jpg"; // Adjust image source accordingly
         document.getElementById('image-container').appendChild(img);
       }
 
