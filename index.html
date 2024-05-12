@@ -9,7 +9,6 @@
       margin: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column; /* Align elements vertically */
       justify-content: center;
       align-items: center;
       background-color: #ffccdd; /* Initial background color */
@@ -76,7 +75,7 @@
       cursor: pointer;
       color: white;
       z-index: 0; /* Ensure click-me is behind heart */
-      margin-top: 20px; /* Adjust this value to move the "Click Me" option further down */
+      margin-top: 100px; /* Adjust this value to move the "Click Me" option further down */
     }
 
     .click-me-text {
@@ -93,17 +92,6 @@
 
     h1 {
       margin-top: 0;
-    }
-
-    #us-container {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    #bottom-text {
-      position: absolute;
-      bottom: 20px;
     }
 
     @keyframes colorShift {
@@ -150,14 +138,6 @@
     <div class="continue-button" onclick="showAnniversary()">Continue</div>
   </div>
 
-  <div id="us-container">
-    <h1>Us</h1>
-  </div>
-
-  <div id="bottom-text">
-    <p>I hope you liked my gift my girl</p>
-  </div>
-
   <script>
     function hideHeart() {
       document.getElementById('heart-container').style.display = 'none'; // Hide the heart
@@ -178,6 +158,24 @@
       document.getElementById('birthday-message').style.display = 'none';
       document.getElementById('other-message').style.display = 'none';
       document.querySelector('.continue-button').style.display = 'none'; // Hide continue button
+      // Show "Us" text
+      var usText = document.createElement('h1');
+      usText.textContent = "Us";
+      document.body.appendChild(usText);
+      // Create container for images
+      var imageContainer = document.createElement('div');
+      imageContainer.setAttribute("id", "image-container");
+      document.body.appendChild(imageContainer);
+      // Create images
+      for (var i = 1; i <= 10; i++) {
+        var img = document.createElement('img');
+        img.src = "image" + i + ".jpg"; // Adjust image source accordingly
+        document.getElementById('image-container').appendChild(img);
+      }
+      // Add text after images
+      var textAfterImages = document.createElement('p');
+      textAfterImages.textContent = "I hope you liked my gift my girl";
+      document.body.appendChild(textAfterImages);
     }
   </script>
 </body>
