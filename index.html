@@ -173,17 +173,20 @@
       imageContainer.setAttribute("id", "image-container");
       document.body.appendChild(imageContainer);
 
-      // Add the provided image
-      var img = document.createElement('img');
-      img.src = "https://cdn.britannica.com/30/150930-120-D3D93F1E/lion-Namibia.jpg"; // Provided image URL
-      document.getElementById('image-container').appendChild(img);
+      // Add the provided images
+      var images = [
+        "https://cdn.britannica.com/30/150930-120-D3D93F1E/lion-Namibia.jpg",
+        "https://files.worldwildlife.org/wwfcmsprod/images/Lion_Kenya/hero_small/7seqacudmc_Medium_WW2116702.jpg",
+        "https://www.shutterstock.com/image-photo/side-view-lion-walking-looking-600w-745688305.jpg"
+      ];
 
-      // Create images
-      for (var i = 1; i <= 10; i++) {
+      images.forEach(function(imageUrl) {
         var img = document.createElement('img');
-        img.src = "image" + i + ".jpg";
-        document.getElementById('image-container').appendChild(img);
-      }
+        img.src = imageUrl;
+        img.style.width = "100px"; // Set the width to a small size
+        img.style.height = "100px"; // Set the height to a small size
+        imageContainer.appendChild(img);
+      });
 
       // Add text after images
       var textAfterImages = document.createElement('p');
