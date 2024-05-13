@@ -173,10 +173,15 @@
       imageContainer.setAttribute("id", "image-container");
       document.body.appendChild(imageContainer);
 
+      // Add the provided image
+      var img = document.createElement('img');
+      img.src = "https://cdn.britannica.com/30/150930-120-D3D93F1E/lion-Namibia.jpg"; // Provided image URL
+      document.getElementById('image-container').appendChild(img);
+
       // Create images
       for (var i = 1; i <= 10; i++) {
         var img = document.createElement('img');
-        img.src = "image" + i + ".jpg"; // Adjust image source accordingly
+        img.src = "image" + i + ".jpg";
         document.getElementById('image-container').appendChild(img);
       }
 
