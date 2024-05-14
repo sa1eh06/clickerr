@@ -94,6 +94,18 @@
       margin-top: 0;
     }
 
+    #image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #image-container img {
+      width: 150px;
+      height: 150px;
+      margin: 5px;
+    }
+
     @keyframes colorShift {
       0% { background-color: #ffccdd; } /* Light pink */
       33% { background-color: #ff99aa; } /* Dark pink */
@@ -187,36 +199,14 @@
         "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&"
       ];
 
-      // Arrange images in a heart shape
-      var totalImages = images.length;
-      var radius = 150;
-      var angle = 0;
-      var centerX = window.innerWidth / 2;
-      var centerY = window.innerHeight / 2;
-      var angleIncrement = (Math.PI * 2) / totalImages;
-
-      images.forEach(function (imageUrl, index) {
+      // Add the images to the container
+      images.forEach(function (imageUrl) {
         var img = document.createElement('img');
         img.src = imageUrl;
-        img.style.width = "100px"; // Set the width to a small size
-        img.style.height = "100px"; // Set the height to a small size
-
-        // Calculate position
-        var x = centerX + radius * Math.cos(angle);
-        var y = centerY + radius * Math.sin(angle);
-
-        // Adjust position based on image size
-        x -= 50;
-        y -= 50;
-
-        img.style.position = "absolute";
-        img.style.left = x + "px";
-        img.style.top = y + "px";
-
+        img.style.width = "150px"; // Set the width
+        img.style.height = "150px"; // Set the height
+        img.style.margin = "5px"; // Add margin between images
         imageContainer.appendChild(img);
-
-        // Update angle for the next image
-        angle += angleIncrement;
       });
 
       // Add text after images
