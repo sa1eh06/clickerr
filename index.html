@@ -177,16 +177,46 @@
       var images = [
         "https://cdn.britannica.com/30/150930-120-D3D93F1E/lion-Namibia.jpg",
         "https://files.worldwildlife.org/wwfcmsprod/images/Lion_Kenya/hero_small/7seqacudmc_Medium_WW2116702.jpg",
-        "https://www.shutterstock.com/image-photo/side-view-lion-walking-looking-600w-745688305.jpg"
+        "https://www.shutterstock.com/image-photo/side-view-lion-walking-looking-600w-745688305.jpg",
+        "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&",
+        "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&",
+        "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&",
+        "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&",
+        "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&",
+        "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&",
         "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&"
       ];
 
-      images.forEach(function(imageUrl) {
+      // Arrange images in a heart shape
+      var totalImages = images.length;
+      var radius = 150;
+      var angle = 0;
+      var centerX = window.innerWidth / 2;
+      var centerY = window.innerHeight / 2;
+      var angleIncrement = (Math.PI * 2) / totalImages;
+
+      images.forEach(function (imageUrl, index) {
         var img = document.createElement('img');
         img.src = imageUrl;
         img.style.width = "100px"; // Set the width to a small size
         img.style.height = "100px"; // Set the height to a small size
+
+        // Calculate position
+        var x = centerX + radius * Math.cos(angle);
+        var y = centerY + radius * Math.sin(angle);
+
+        // Adjust position based on image size
+        x -= 50;
+        y -= 50;
+
+        img.style.position = "absolute";
+        img.style.left = x + "px";
+        img.style.top = y + "px";
+
         imageContainer.appendChild(img);
+
+        // Update angle for the next image
+        angle += angleIncrement;
       });
 
       // Add text after images
