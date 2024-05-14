@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
   <title>Heart Clicker</title>
   <style>
     body {
@@ -181,8 +181,20 @@
         "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&"
       ];
 
-      // Arrange images in a heart shape
-      var totalImages = 10; // Number of images
+      // Add the 11th image
+      var middleImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz3Z9XNXvGDA-ZRIkT1XTQJKdl7a8eLCCOWjwGflm0vg&s";
+      var middleImg = document.createElement('img');
+      middleImg.src = middleImageUrl;
+      middleImg.style.width = "100px"; // Set the width to a small size
+      middleImg.style.height = "100px"; // Set the height to a small size
+      middleImg.style.position = "absolute";
+      middleImg.style.left = "50%"; // Center horizontally
+      middleImg.style.top = "50%"; // Center vertically
+      middleImg.style.transform = "translate(-50%, -50%)"; // Center vertically and horizontally
+      imageContainer.appendChild(middleImg);
+
+      // Arrange other images in a heart shape
+      var totalImages = images.length;
       var radius = 200; // Increased radius for more space between images
       var angle = 0;
       var centerX = window.innerWidth / 2;
@@ -190,8 +202,7 @@
       var angleIncrement = (Math.PI * 2) / totalImages;
       var marginAngle = 0.1; // Angle for margin between images
 
-      for (var i = 0; i < totalImages; i++) {
-        var imageUrl = images[i % images.length]; // Cycle through image URLs
+      images.forEach(function (imageUrl, index) {
         var img = document.createElement('img');
         img.src = imageUrl;
         img.style.width = "100px"; // Set the width to a small size
@@ -212,8 +223,10 @@
         imageContainer.appendChild(img);
 
         // Update angle for the next image
-        angle += angleIncrement; // Only angle increment needed, no need for margin angle
-      }
+        if (index < totalImages - 1) {
+          angle += angleIncrement + marginAngle * angleIncrement; // Add the margin angle to the angle increment
+        }
+      });
 
       // Add text after images
       var textAfterImages = document.createElement('p');
