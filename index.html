@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Heart Clicker</title>
   <style>
     body {
@@ -188,13 +188,12 @@
       middleImg.style.width = "100px"; // Set the width to a small size
       middleImg.style.height = "100px"; // Set the height to a small size
       middleImg.style.position = "absolute";
-      middleImg.style.left = "50%"; // Center horizontally
-      middleImg.style.top = "50%"; // Center vertically
-      middleImg.style.transform = "translate(-50%, -50%)"; // Center vertically and horizontally
+      middleImg.style.left = (window.innerWidth / 2 - 50) + "px";
+      middleImg.style.top = (window.innerHeight / 2 - 50) + "px";
       imageContainer.appendChild(middleImg);
 
       // Arrange other images in a heart shape
-      var totalImages = images.length;
+      var totalImages = 10; // Number of other images
       var radius = 200; // Increased radius for more space between images
       var angle = 0;
       var centerX = window.innerWidth / 2;
@@ -202,7 +201,8 @@
       var angleIncrement = (Math.PI * 2) / totalImages;
       var marginAngle = 0.1; // Angle for margin between images
 
-      images.forEach(function (imageUrl, index) {
+      for (var i = 0; i < totalImages; i++) {
+        var imageUrl = images[i % images.length]; // Cycle through image URLs
         var img = document.createElement('img');
         img.src = imageUrl;
         img.style.width = "100px"; // Set the width to a small size
@@ -223,10 +223,8 @@
         imageContainer.appendChild(img);
 
         // Update angle for the next image
-        if (index < totalImages - 1) {
-          angle += angleIncrement + marginAngle * angleIncrement; // Add the margin angle to the angle increment
-        }
-      });
+        angle += angleIncrement; // Only angle increment needed, no need for margin angle
+      }
 
       // Add text after images
       var textAfterImages = document.createElement('p');
