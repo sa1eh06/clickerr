@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heart Clicker</title>
+  <title>SUPRISEEE</title>
   <style>
     body {
       margin: 0;
@@ -118,6 +118,14 @@
       50% { border-radius: 100%; transform: scale(0.5) rotate(-45deg); }
       100% { transform: scale(1) rotate(-45deg); }
     }
+
+    /* Added CSS for circular images */
+    img {
+      width: 100px; /* Set the width to a small size */
+      height: 100px; /* Set the height to a small size */
+      border-radius: 50%; /* Make the image circular */
+      position: absolute;
+    }
   </style>
 </head>
 <body>
@@ -185,11 +193,11 @@
       var middleImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz3Z9XNXvGDA-ZRIkT1XTQJKdl7a8eLCCOWjwGflm0vg&s";
       var middleImg = document.createElement('img');
       middleImg.src = middleImageUrl;
-      middleImg.style.width = "150px"; // Increase the width
-      middleImg.style.height = "150px"; // Increase the height
+      middleImg.style.width = "200px"; // Increase the width
+      middleImg.style.height = "200px"; // Increase the height
       middleImg.style.position = "absolute";
-      middleImg.style.left = (window.innerWidth / 2 - 75) + "px"; // Adjusted left position
-      middleImg.style.top = (window.innerHeight / 2 - 75) + "px"; // Adjusted top position
+      middleImg.style.left = (window.innerWidth / 2 - 100) + "px"; // Adjusted left position
+      middleImg.style.top = (window.innerHeight / 2 - 100) + "px"; // Adjusted top position
       imageContainer.appendChild(middleImg);
 
       // Arrange other images in a heart shape
@@ -207,6 +215,7 @@
         img.src = imageUrl;
         img.style.width = "100px"; // Set the width to a small size
         img.style.height = "100px"; // Set the height to a small size
+        img.style.borderRadius = "50%"; // Make the image circular
 
         // Calculate position
         var x = centerX + radius * Math.cos(angle);
