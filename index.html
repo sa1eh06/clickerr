@@ -7,16 +7,17 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 0;
+      overflow-y: scroll; /* Enable vertical scrolling */
       background-color: #ffccdd; /* Initial background color */
       animation: colorShift 12s infinite alternate; /* Animation for color shifting */
     }
 
     #heart-container {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
     }
 
@@ -75,7 +76,6 @@
       cursor: pointer;
       color: white;
       z-index: 0; /* Ensure click-me is behind heart */
-      margin-top: 100px; /* Adjust this value to move the "Click Me" option further down */
     }
 
     .click-me-text {
@@ -121,10 +121,9 @@
 
     /* Added CSS for circular images */
     img {
-      width: 100px; /* Set the width to a small size */
-      height: 100px; /* Set the height to a small size */
-      border-radius: 50%; /* Make the image circular */
-      position: absolute;
+      width: 100vw; /* Set the width to full viewport width */
+      height: 100vh; /* Set the height to full viewport height */
+      object-fit: cover; /* Ensure the image covers the entire viewport */
     }
   </style>
 </head>
@@ -170,79 +169,57 @@
       // Show "Us" text at the top middle of the screen
       var usText = document.createElement('h1');
       usText.textContent = "Us";
-      usText.style.position = "absolute";
-      usText.style.top = "50px"; // Adjust as needed
-      usText.style.left = "50%"; // Center horizontally
-      usText.style.transform = "translateX(-50%)"; // Center horizontally
+      usText.style.textAlign = "center"; // Center the text
       document.body.appendChild(usText);
 
       // Create container for images
       var imageContainer = document.createElement('div');
       imageContainer.setAttribute("id", "image-container");
+      imageContainer.style.display = "flex"; // Use flexbox to align images
+      imageContainer.style.flexWrap = "wrap"; // Allow images to wrap to the next line
+      imageContainer.style.justifyContent = "center"; // Center the images horizontally
+      imageContainer.style.alignItems = "center"; // Center the images vertically
+      imageContainer.style.height = "auto"; // Allow container to grow in height
       document.body.appendChild(imageContainer);
 
       // Add the provided images
       var images = [
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241604156033208351/WhatsApp_Image_2024-05-19_at_05.54.24_7158d52a.jpg?ex=664acd7a&is=66497bfa&hm=51bf89dad2a373789b578ffac55f2512003f38840ffa2d12836204e1c58ac318&",
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241604125230366820/WhatsApp_Image_2024-05-19_at_05.54.24_c7fc3933.jpg?ex=664acd73&is=66497bf3&hm=3f6d44d53537e77ac600cfe04ce15471dde54bc046f8ba3e3752b4e0fbb4da09&",
         "https://cdn.discordapp.com/attachments/1174611780954243092/1241480326119948288/WhatsApp_Image_2024-05-18_at_18.48.03_7b4596c8.jpg?ex=664a5a27&is=664908a7&hm=9d63fdc08db5cc380c5e9bc45cc624e5de15262e534a3cf0128c9a138a9fa8ce&",
-        "https://files.worldwildlife.org/wwfcmsprod/images/Lion_Kenya/hero_small/7seqacudmc_Medium_WW2116702.jpg",
-        "https://www.shutterstock.com/image-photo/side-view-lion-walking-looking-600w-745688305.jpg",
-        "https://cdn.discordapp.com/attachments/1064887922333065268/1239944037688016988/AF1.webp?ex=6644c35f&is=664371df&hm=9ed8567519ad2447e8e836df97bf8638d93243e210b45fa748859c2305365a00&",
-        "https://cdn.discordapp.com/attachments/1174437480800469164/1240508310566993970/pk_flag.png?ex=6646d0e4&is=66457f64&hm=b56f189ac0a65be238008d543a2ef70d28a448d29ae4215419f735b35ae794dd&"
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241817585381539850/WhatsApp_Image_2024-05-19_at_16.30.42_76e424f1.jpg?ex=664b9440&is=664a42c0&hm=d08b1445cc117d67105034af3c6e4ed8a18abc1e9f0d2938613388c410904a9c&",
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241490683173535824/WhatsApp_Image_2024-05-18_at_18.48.07_7c5511b8.jpg?ex=664a63cc&is=6649124c&hm=5fa08f9e23daad587bb16168da7abd76ea6348a34b062a90796fe21464ab0dc8&",
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241605211584335902/WhatsApp_Image_2024-05-18_at_18.49.10_00136bb3.jpg?ex=664ace76&is=66497cf6&hm=9a601aa503396d95ac89f25262fff6ead4807a314adecf90912b84a65c5a8ecf&",
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241605212200894495/WhatsApp_Image_2024-05-18_at_18.49.10_1636a92c.jpg?ex=664ace76&is=66497cf6&hm=1201b760e68fd2a691963baa66b2352b4c6e56ab861f889cac7c5ed41b7560ac&",
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241605212519792671/WhatsApp_Image_2024-05-18_at_18.49.12_9a6e4f8e.jpg?ex=664ace76&is=66497cf6&hm=7cbdeb3ca6df30e1f524b928c147c4dbe0eeb4838693f31f289741e9d0ece140&",
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241605229800325151/WhatsApp_Image_2024-05-18_at_18.49.08_aaa54ef6.jpg?ex=664ace7a&is=66497cfa&hm=318c7cb51cb764e1cbf2468a7d7fe13d6deab9dec35b490948829b2166953693&",
+        "https://cdn.discordapp.com/attachments/1174611780954243092/1241821295474376745/WhatsApp_Image_2024-05-19_at_16.30.42_8fc37859.jpg?ex=664b97b4&is=664a4634&hm=a429a87f9d15ed8876f445f5ecd1ac5083384555b1a43782e15271d3bb6b7eba&"
       ];
 
       // Add the 11th image
-      var middleImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz3Z9XNXvGDA-ZRIkT1XTQJKdl7a8eLCCOWjwGflm0vg&s";
+      var middleImageUrl = "https://cdn.discordapp.com/attachments/1174611780954243092/1241817585381539850/WhatsApp_Image_2024-05-19_at_16.30.42_76e424f1.jpg?ex=664b9440&is=664a42c0&hm=d08b1445cc117d67105034af3c6e4ed8a18abc1e9f0d2938613388c410904a9c&";
       var middleImg = document.createElement('img');
       middleImg.src = middleImageUrl;
-      middleImg.style.width = "200px"; // Increase the width
-      middleImg.style.height = "200px"; // Increase the height
-      middleImg.style.position = "absolute";
-      middleImg.style.left = (window.innerWidth / 2 - 100) + "px"; // Adjusted left position
-      middleImg.style.top = (window.innerHeight / 2 - 100) + "px"; // Adjusted top position
+      middleImg.style.width = "100vw"; // Set the width to full viewport width
+      middleImg.style.height = "100vh"; // Set the height to full viewport height
+      middleImg.style.objectFit = "cover"; // Ensure the image covers the entire viewport
       imageContainer.appendChild(middleImg);
 
-      // Arrange other images in a heart shape
-      var totalImages = 10; // Number of other images
-      var radius = 200; // Increased radius for more space between images
-      var angle = 0;
-      var centerX = window.innerWidth / 2;
-      var centerY = window.innerHeight / 2;
-      var angleIncrement = (Math.PI * 2) / totalImages;
-      var marginAngle = 0.1; // Angle for margin between images
-
-      for (var i = 0; i < totalImages; i++) {
-        var imageUrl = images[i % images.length]; // Cycle through image URLs
+      // Add the other images
+      for (var i = 0; i < images.length; i++) {
+        var imageUrl = images[i];
         var img = document.createElement('img');
         img.src = imageUrl;
-        img.style.width = "100px"; // Set the width to a small size
-        img.style.height = "100px"; // Set the height to a small size
-        img.style.borderRadius = "50%"; // Make the image circular
-
-        // Calculate position
-        var x = centerX + radius * Math.cos(angle);
-        var y = centerY + radius * Math.sin(angle);
-
-        // Adjust position based on image size
-        x -= 50;
-        y -= 50;
-
-        img.style.position = "absolute";
-        img.style.left = x + "px";
-        img.style.top = y + "px";
-
+        img.style.width = "100vw"; // Set the width to full viewport width
+        img.style.height = "100vh"; // Set the height to full viewport height
+        img.style.objectFit = "cover"; // Ensure the image covers the entire viewport
         imageContainer.appendChild(img);
-
-        // Update angle for the next image
-        angle += angleIncrement; // Only angle increment needed, no need for margin angle
       }
 
       // Add text after images
       var textAfterImages = document.createElement('p');
       textAfterImages.textContent = "I hope you liked my gift meri jaan";
-      textAfterImages.style.position = "absolute";
-      textAfterImages.style.bottom = "50px"; // Adjust as needed
-      textAfterImages.style.left = "50%"; // Center horizontally
-      textAfterImages.style.transform = "translateX(-50%)"; // Center horizontally
+      textAfterImages.style.textAlign = "center"; // Center the text
       document.body.appendChild(textAfterImages);
     }
   </script>
